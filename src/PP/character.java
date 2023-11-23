@@ -1,11 +1,11 @@
 package PP;
-public class character{
+public abstract class character{
     private String Name;
     private int Level;
     private int Hp;
     private int Max_Hp;
     private int Mana;
-    private int Max_Mana;
+    private int Max_Mana = 100;
     private int Xp = 0;
     private int Max_Xp = 100;
     private int baseSpeed;
@@ -28,17 +28,15 @@ public class character{
     public int getLevel() {
         return Level;
     }
-    public character(String Name , int Xp , sword swordin , shield shieldin) {
+    public character(String Name ,int baseSpeed,int baseAttack,int baseDefense,int Max_Hp) {
         this.Name = Name;
         this.Level = 1;
-        this.Hp = this.Max_Hp;
+        this.Max_Hp = Max_Hp;
         this.Mana = this.Max_Mana;
-        this.Xp = Xp;
-        this.baseSpeed = 1;
-        this.baseAttack = 1;
-        this.baseDefense = 1;
-        this.Sword = swordin;
-        this.Shield = shieldin;
+        this.Xp = 0;
+        this.baseSpeed = baseSpeed;
+        this.baseAttack = baseAttack;
+        this.baseDefense = baseDefense;
         UpLevel();
         calSpeed();
     }
@@ -66,6 +64,65 @@ public class character{
         if(Sword != null){
             return Sword.getDamage();
         }else return 0;
+    }
+
+    public int getBaseAttack() {
+        return baseAttack;
+    }
+
+    public int getBaseSpeed() {
+        return baseSpeed;
+    }
+
+    public int getBaseDefense() {
+        return baseDefense;
+    }
+
+    public int getHp() {
+        return Hp;
+    }
+
+    public int getMana() {
+        return Mana;
+    }
+
+    public int getXp() {
+        return Xp;
+    }
+
+    public int getMax_Xp() {
+        return Max_Xp;
+    }
+
+    public void setLevel(int level) {
+        Level = level;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public sword getSword() {
+        return Sword;
+    }
+
+    public shield getShield() {
+        return Shield;
+    }
+
+    public int getMax_Hp() {
+        return Max_Hp;
+    }
+
+    public int getMax_Mana() {
+        return Max_Mana;
+    }
+    public String getSwordName_() {
+        return Sword.getSwordName();
+    }
+
+    public String getShieldName_() {
+        return Shield.getShieldName();
     }
 
 }
